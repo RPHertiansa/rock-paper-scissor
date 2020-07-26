@@ -24,23 +24,47 @@ function result(compImg, user) {
 
 }
 
+function getRandom() { //animation to randomize image from computer
+    const imgComp = document.querySelector('.comp-img');
+    const img = ['rock', 'paper', 'scissor'];
+    let i = 0;
+    const start = new Date().getTime();
+    setInterval (function() {
+        if (new Date().getTime() - start > 1000 ) { //max time for randomize, 1000ms
+            clearInterval;
+            return;
+        }
+        imgComp.setAttribute('src',`img/${img[i++]}.png`);
+        if( i == img.length) i = 0; //looping between all images
+    }, 100) //duration of each images, 100ms
+}
+
 const userImages = document.querySelectorAll('.user img');
 userImages.forEach(function(userIMG) {
     userIMG.addEventListener('click', function() {
         const getCompIMG = compImg(); //get randomize image by compImg
         const getUserIMG = userIMG.className; //get user image by class name
-    
-        const imgComp = document.querySelector('.comp-img');
-        imgComp.setAttribute('src',`img/${getCompIMG}.png`);
         const getResult = result(getCompIMG,getUserIMG)
-        console.log(`comp: ${getCompIMG}
-        user:${getUserIMG}
-        result ${getResult}`)
-        const resultBox = document.querySelector('.result')
-        resultBox.innerHTML = getResult
+        
+        getRandom();
 
+        setTimeout(function() { //this function is called after randomize
+            const imgComp = document.querySelector('.comp-img');
+            imgComp.setAttribute('src',`img/${getCompIMG}.png`);
+            
+
+            const resultBox = document.querySelector('.result')
+            resultBox.innerHTML = getResult;
+
+        }, 1000); //waiting time 1000ms after getRandom start
+        
+        // console.log(`comp: ${getCompIMG}
+        // user:${getUserIMG}
+        // result ${getResult}`)
     });
 });
+
+
 
 // const userRock = document.querySelector('.rock');
 // userRock.addEventListener('click', function(){

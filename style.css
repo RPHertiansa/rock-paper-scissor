@@ -1,6 +1,7 @@
 body {
     text-align: center;
     font-family: Roboto, sans-serif;
+    background-image: url(img/bg.jpg);
 }
 img {
     max-width: 120px;
@@ -8,7 +9,6 @@ img {
     border-radius: 50%;
     overflow: hidden;
     margin: auto;
-    
     display: block;
 }
 .comp-img {
@@ -16,16 +16,21 @@ img {
 }
 img:hover {
     transform: scale(1.02);
-    filter: contrast(0.8);
+    filter: contrast(2);
+}
+.container{
+    position: relative;
 }
 
 .comp {
     border: 1px solid red;
     border-radius: 20px 20px 0px 0px;
-    background-color: crimson;
+    background-color: rgb(200,8,21);
     max-width: 500px;
     padding-bottom: 50px;
     padding-top: 20px;
+    position: relative;
+    
 }
 .result {
     border: 1px solid grey;
@@ -33,18 +38,18 @@ img:hover {
     background-color: lightgrey;
     width: 150px;
     height: 60px;
-    
-    z-index: 10;
+    position: absolute;
+    z-index: 1;
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    top: 0;
+    top: 100px;
     bottom: 0;
     left: 0;
     right: 0;
-    position: relative;
+    
 }
 .user {
     border: 1px solid blue;
@@ -53,8 +58,11 @@ img:hover {
     max-width: 500px;
     padding-top: 50px;
     padding-bottom: 20px;
+    position: relative;
     
 }
+    
+
 ul, li {
     list-style: none;
     display: inline-block;
