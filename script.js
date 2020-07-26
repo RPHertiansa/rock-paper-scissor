@@ -24,7 +24,7 @@ function result(compImg, user) {
 
 }
 
-const userImages = document.querySelectorAll('li img');
+const userImages = document.querySelectorAll('.user img');
 userImages.forEach(function(userIMG) {
     userIMG.addEventListener('click', function() {
         const getCompIMG = compImg(); //get randomize image by compImg
